@@ -1,0 +1,31 @@
+{
+  "name": "hello-next",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "fix": "standard --fix",
+    "test": "standard",
+    "dev": "next -p 8080",
+    "build": "next build",
+    "start": "next start"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "graphql": "^0.9.5",
+    "lorem-ipsum": "^1.0.4",
+    "next": "^2.3.0-alpha1",
+    "react": "^15.5.4",
+    "react-addons-css-transition-group": "^15.5.2",
+    "react-addons-transition-group": "^15.5.2",
+    "react-apollo": "^1.1.2",
+    "react-dom": "^15.5.4",
+    "react-md": "^1.0.12",
+    "redux": "^3.6.0"
+  },
+  "devDependencies": {
+    "standard": "^10.0.2"
+  }
+}
