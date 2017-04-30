@@ -2,7 +2,7 @@
   "name": "hello-next",
   "version": "1.0.0",
   "description": "An Application for recipes to cook.",
-  "repository": "git@github.com:jbrousseau/chefbook.git",
+  "repository": "git@github.com:jbrousseau/chefbook-next.git",
   "main": "index.js",
   "scripts": {
     "fix": "standard --fix",
