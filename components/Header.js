@@ -3,7 +3,7 @@ import FontIcon from 'react-md/lib/FontIcons'
 
 
 import LoremIpsum from './LoremIpsum'
-import BaseToolbar from './BaseToolbar'
+import TopToolbar from './TopToolbar'
 import Recipes from './Recipes'
 
 const recipes = <FontIcon>kitchen</FontIcon>
@@ -15,7 +15,7 @@ const shoppingbasket = <FontIcon>shopping_basket</FontIcon>
 export default function IconTabs (props) {
   return (
     <div>
-      <TabsContainer toolbar={<BaseToolbar component="div" />} colored panelClassName="md-grid chefbook-tab-content">
+      <TabsContainer toolbar={<TopToolbar component="div" />} colored panelClassName="md-grid chefbook-tab-content">
         <Tabs tabId="chefbook-stuffs">
           <Tab label="Recettes" icon={recipes}>
             <Recipes />

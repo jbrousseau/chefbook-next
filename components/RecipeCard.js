@@ -12,7 +12,7 @@ export default function RecipeCard (props) {
         <img src={imgSrc} role="presentation" />
         <MediaOverlay>
           <CardTitle title="Poulet au cury" subtitle="Plat principal">
-            <Button className="md-cell--right" icon>star_outline</Button>
+            <Button className="md-cell--right" icon>favorites</Button>
           </CardTitle>
         </MediaOverlay>
       </Media>

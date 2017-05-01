@@ -2,10 +2,10 @@ import Toolbar from 'react-md/lib/Toolbars';
 import Button from 'react-md/lib/Buttons/Button';
 import FontIcon from 'react-md/lib/FontIcons'
 
-const BaseToolbar = (props) => <Toolbar {...props} />;
+const TopToolbar = (props) => <Toolbar {...props} />;
 
-BaseToolbar.propTypes = Toolbar.propTypes;
-BaseToolbar.defaultProps = {
+TopToolbar.propTypes = Toolbar.propTypes;
+TopToolbar.defaultProps = {
   ...Toolbar.defaultProps,
   nav:<Button icon key="home">restaurant</Button>,
   title: <div>Chefbook</div>,
@@ -15,4 +15,4 @@ BaseToolbar.defaultProps = {
   ],
 };
 
-export default BaseToolbar;
+export default TopToolbar;

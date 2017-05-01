@@ -1,0 +1,67 @@
+mutation {
+  authenticate(input: {email: "kaustin3@nyu.edu", password: "jQZ8mYjUNH"}) {
+    clientMutationId
+    jwtToken 
+
+  }
+}
+
+
+{
+   personById(id:2){
+    nodeId
+    fullName
+    firstName
+    lastName
+  }
+}
+
+
+{
+  searchRecipe(search: "crêpe") {
+    totalCount
+    edges {
+      cursor
+      node {
+        title
+        createdAt
+        likeCount
+        score
+        personByAuthorId {
+          firstName
+          lastName
+        }
+        recipeCategoryByCategoryId {
+          label
+        }
+        recipeCommentsByRecipeId {
+          totalCount
+          edges {
+            node {
+              authorId
+              headline
+              summary(length: 20)
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+
+
+mutation Mutations($input_0: AuthenticateInput!) {
+  authenticate(input: $input_0) {
+    clientMutationId
+    ...F0
+  }
+}
+
+fragment F0 on AuthenticatePayload {
+  jwtToken {
+    role
+    personId
+  } 
+}
+{"input_0":{"email": "test@test.com", "password": "test", "clientMutationId": "0"}}

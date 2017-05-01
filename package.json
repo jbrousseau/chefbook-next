@@ -5,6 +5,9 @@
   "repository": "git@github.com:jbrousseau/chefbook-next.git",
   "main": "index.js",
   "scripts": {
+    "schema-up": "./backend/scripts/run-schema",
+    "schema-down": "psql -f backend/schema/database/global-drop.sql",
+    "schema": "npm run schema-down && npm run schema-up",
     "fix": "standard --fix",
     "test": "standard",
     "dev": "next -p 8080",
