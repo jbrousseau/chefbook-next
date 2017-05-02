@@ -33,6 +33,7 @@ sudo su - postgres
 psql
 create role ubuntu SUPERUSER;
 ALTER ROLE ubuntu WITH LOGIN;
+ALTER USER "ubuntu" WITH PASSWORD 'test';  
 CREATE DATABASE ubuntu WITH OWNER ubuntu;
 \q
 sudo service postgresql start
@@ -49,5 +50,5 @@ npm run schema
 Run postgraphql for the middleware :
 
 ```bash
-postgraphql -s chefbook -c postgres://ubuntu:test@localhost:5432 -n 0.0.0.0 -p 8080 -e A_PASSWORD_FOR_PROD -t chefbook.jwt_token -r chefbook_anonymous
+postgraphql -s chefbook -c postgres://ubuntu:test@localhost:5432 -n 0.0.0.0 -p 8080 --secret A_PASSWORD_FOR_PROD -t chefbook.jwt_token -r chefbook_anonymous
 ```

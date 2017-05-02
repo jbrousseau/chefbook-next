@@ -2,11 +2,11 @@ import dotenv from 'dotenv'
 import path from 'path'
 import fetch from 'isomorphic-fetch'
 import fsp from 'fs-promise'
-import { introspectionQuery, printSchema } from 'graphql/utilities'
+import { introspectionQuery } from 'graphql/utilities'
 
 // load config from .env file
 dotenv.load()
-const { APP_PORT, 
+const { APP_PORT,
         APP_HOST} = process.env
 
 // introspect the schema from the graphql endpoint
@@ -14,7 +14,7 @@ const fetchSchema = url => {
   return fetch(url, {
     method: 'POST',
     body: JSON.stringify({ query: introspectionQuery }),
-    headers: { 'Content-Type': 'application/json' },
+    headers: { 'Content-Type': 'application/json' }
   })
   .then(res => res.text())
 }
