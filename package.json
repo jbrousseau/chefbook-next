@@ -10,7 +10,7 @@
     "schema": "npm run schema-down && npm run schema-up",
     "fix": "standard --fix",
     "test": "standard",
-    "dev": "next -p 8080",
+    "dev": "node backend/server.js",
     "build": "next build",
     "start": "next start"
   },
@@ -18,15 +18,18 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "dotenv": "^4.0.0",
+    "express": "^4.15.2",
     "graphql": "^0.9.5",
     "lorem-ipsum": "^1.0.4",
     "next": "^2.3.0-alpha1",
+    "postgraphql": "^3.2.0",
     "react": "^15.5.4",
+    "react-addons-css-transition-group": "^15.5.2",
+    "react-addons-transition-group": "^15.5.2",
     "react-apollo": "^1.1.2",
     "react-dom": "^15.5.4",
     "react-md": "^1.0.12",
-    "react-addons-css-transition-group": "^15.5.2",
-    "react-addons-transition-group": "^15.5.2",
     "redux": "^3.6.0"
   },
   "devDependencies": {
