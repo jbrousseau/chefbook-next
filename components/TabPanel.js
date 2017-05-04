@@ -3,7 +3,6 @@ import FontIcon from 'react-md/lib/FontIcons'
 
 import LoremIpsum from './LoremIpsum'
 import TopToolbar from './TopToolbar'
-import RecipeList from './RecipeList'
 
 const recipes = <FontIcon>kitchen</FontIcon>
 const favorites = <FontIcon style={{ width: 24 }}>favorites</FontIcon> // it's 48 for some reason
@@ -15,7 +14,7 @@ export default function IconTabs (props) {
       <TabsContainer toolbar={<TopToolbar component='div' />} colored panelClassName='chefbook-tab-content'>
         <Tabs tabId='chefbook-stuffs'>
           <Tab label='Recettes' icon={recipes}>
-            <RecipeList />
+            {props.tab1Children}
           </Tab>
           <Tab label='Favoris' icon={favorites}>
             <LoremIpsum count={20} paragraphClassName='md-cell md-cell--12 md-text-container' />

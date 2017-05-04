@@ -1,9 +1,10 @@
 import App from '../components/App'
-import Header from '../components/Header'
+import TabPanel from '../components/TabPanel'
+import RecipeListContainer from '../components/RecipeListContainer'
 import withData from '../lib/withData'
 
-export default withData((props) => (
+export default withData(() => (
   <App>
-    <Header />
+    <TabPanel tab1Children={<RecipeListContainer />} />
   </App>
 ))
