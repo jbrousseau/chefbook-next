@@ -1,4 +1,3 @@
-import Card from 'react-md/lib/Cards/Card'
 import CardTitle from 'react-md/lib/Cards/CardTitle'
 import Media, { MediaOverlay } from 'react-md/lib/Media'
 import Button from 'react-md/lib/Buttons/Button'
@@ -8,9 +7,9 @@ const imgSrc = '/static/fond_chefbook.jpg'
 
 export default function RecipeCard (props) {
   return (
-    <Card className='md-cell md-cell--3'>
+    <div className='md-cell md-cell--3-tablet md-cell--4-desktop'>
       <Link href={{pathname: 'recipe', query: {id: props.id}}}>
-        <Media >
+        <Media aspectRatio='4-3'>
           <img src={imgSrc} role='presentation' />
           <MediaOverlay>
             <CardTitle title={props.title} subtitle={props.recipeCategoryByCategoryId.label}>
@@ -19,6 +18,6 @@ export default function RecipeCard (props) {
           </MediaOverlay>
         </Media>
       </Link>
-    </Card>
+    </div>
   )
 }

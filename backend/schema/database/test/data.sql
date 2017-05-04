@@ -29,23 +29,25 @@ insert into chefbook_admin.person_account (person_id, email, password_hash) valu
   (8, 'drodriguez7@mashable.com', '$2a$06$8Wa.RA33V4MrCIKQ1rAJIu7HMJSLjTZLcZY1zrlU4fZrJOIVFtvQS'), -- Password: 'TEYkGd'
   (9, 'jpalmer8@washingtonpost.com', '$2a$06$q3H4ngUMZ9ADz3utyzGRX.6pWrzmPurqEjKtm7qzbYJrmSEYrsYvu'), -- Password: 'yYh7KDQ2'
   (10, 'rfisher9@nytimes.com', '$2a$06$lvLbqB8u.BVnqa8Zmy5E0.1LgSyKJkBnRYztVu3gO.hE6kCIsx2YK'); -- Password: 'tAVD3Yvi2'
-  
-  
+
+
 insert into chefbook.ingredient (id, label, lang_id) values
   (1, 'oeuf', 1),
   (2, 'litre de lait', 1),
   (3, 'gramme de farine', 1);
-  
+
 alter sequence chefbook.ingredient_id_seq restart with 4;
 
 insert into chefbook.recipe_category (id, label, lang_id) values
   (1, 'Entrée', 1),
   (2, 'Plat principal', 1),
   (3, 'Dessert', 1);
-    
+
 insert into chefbook.recipe (id, author_id, title, cook_time, setup_time, like_count, score, category_id, created_at) values
   (1, 1, 'Recette de pate à crêpe', 4, 10, 5, 3, 2, '2013-09-24T15:05:29Z'),
-  (2, 1, 'Tomate farcie', 4, 10, 5, 3, 2, '2013-09-24T15:05:29Z');
+  (2, 1, 'Poulet au cury', 2, 10, 5, 2, 1, '2013-09-24T15:05:29Z'),
+  (3, 1, 'tarte à la romaine', 2, 10, 5, 2, 3, '2013-09-24T15:05:29Z'),
+  (4, 1, 'Tomate farcie', 4, 10, 5, 3, 2, '2013-09-24T15:05:29Z');
 
 alter sequence chefbook.recipe_id_seq restart with 3;
 

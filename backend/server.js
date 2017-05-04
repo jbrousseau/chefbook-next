@@ -2,6 +2,9 @@ const express = require('express')
 const next = require('next')
 const postgraphql = require('postgraphql').postgraphql
 const dotenv = require('dotenv')
+const { parse } = require('url')
+const { join } = require('path')
+
 fetch = require('node-fetch') // eslint-disable-line
 
 // Load the config from .env file.
@@ -32,6 +35,16 @@ app.prepare()
   }))
 
   server.get('*', (req, res) => {
+    const parsedUrl = parse(req.url, true)
+    const rootStaticFiles = [
+      '/robots.txt',
+      '/sitemap.xml',
+      '/favicon.ico'
+    ]
+    if (rootStaticFiles.indexOf(parsedUrl.pathname) > -1) {
+      const path = join(__dirname, 'static', parsedUrl.pathname)
+      app.serveStatic(req, res, path)
+    }
     return handle(req, res)
   })
 
