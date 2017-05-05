@@ -60,4 +60,23 @@ insert into chefbook.recipe_comment (id, author_id, headline, body, recipe_id, l
 
 alter sequence chefbook.recipe_comment_id_seq restart with 31;
 
+
+insert into chefbook.recipe_ingredient (id, ingredient_id, recipe_id, quantity) values
+  (1, 1, 1, 3),
+  (2, 2, 1, 4),
+  (3, 3, 1, 7),
+  (4, 2, 2, 4),
+  (5, 3, 2, 7);
+
+alter sequence chefbook.recipe_ingredient_id_seq restart with 31;
+
+insert into chefbook.recipe_step (id, recipe_id, body) values
+  (1, 1, 'Ameliorated optimal emulation Aenean lectus. Pellentesque eget nunc. Donec quis orci eget orci vehicula condimentum.\n\nCurabitur in libero ut massa'),
+  (2, 1, 'Open-source non-volatile protocol In hac habitasse platea dictumst. Etiam faucibus cursus urna. Ut tellus.\n\nNulla ut erat id maur'),
+  (3, 1, 'Decentralized tangible circuit'),
+  (4, 1, 'Ameliorated optimal emulation'),
+  (5, 2, 'Ameliorated optimal emulation Aenean lectus. Pellentesque eget nunc. Donec quis orci eget orci vehicula condimentum.\n\nCurabitur in libero ut massa'),
+  (6, 2, 'Open-source non-volatile protocol In hac habitasse platea dictumst. Etiam faucibus cursus urna. Ut tellus.\n\nNulla ut erat id maur'),
+  (7, 2, 'Decentralized tangible circuit');
+alter sequence chefbook.recipe_step_id_seq restart with 31;
 commit;

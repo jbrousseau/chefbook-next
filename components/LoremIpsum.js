@@ -22,13 +22,13 @@ export default class LoremIpsum extends PureComponent {
     ]).isRequired,
     count: PropTypes.number.isRequired,
     units: PropTypes.oneOf(['sentences', 'words', 'paragraphs'])
-  };
+  }
 
   static defaultProps = {
     component: 'section',
     count: 1,
     units: 'paragraphs'
-  };
+  }
 
   constructor (props) {
     super(props)
