@@ -3,13 +3,13 @@ import Media, { MediaOverlay } from 'react-md/lib/Media'
 import Button from 'react-md/lib/Buttons/Button'
 import Link from 'next/link'
 import injectInk from 'react-md/lib/Inks'
+import Paper from 'react-md/lib/Papers'
 
 const imgSrc = '/static/hamburger.jpg'
 
 function RecipeCard (props) {
   return (
     <div className='md-cell md-cell--2-phone md-cell--4-tablet md-cell--3-desktop'>
-      {props.ink}
       <Link href={{pathname: 'recipe', query: {id: props.id}}}>
         <Media aspectRatio='4-3'>
           <img src={imgSrc} role='presentation' />
@@ -20,6 +20,12 @@ function RecipeCard (props) {
           </MediaOverlay>
         </Media>
       </Link>
+      <style jsx>{`
+      div:hover {
+        cursor: pointer;
+      }
+    `}</style>
+      {props.ink}
     </div>
   )
 }

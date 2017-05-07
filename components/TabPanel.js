@@ -3,6 +3,7 @@ import FontIcon from 'react-md/lib/FontIcons'
 
 import LoremIpsum from './LoremIpsum'
 import TopToolbar from './TopToolbar'
+import Button from 'react-md/lib/Buttons/Button'
 import React from 'react'
 
 import RecipeListContainer from './RecipeListContainer'
@@ -41,6 +42,11 @@ export default class TabPanel extends React.Component {
             </Tab>
           </Tabs>
         </TabsContainer>
+        <Button
+          floating
+          primary
+          fixed
+        >add</Button>
       </div>
     )
   }

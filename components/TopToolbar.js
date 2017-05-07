@@ -14,7 +14,7 @@ class TopToolbar extends React.Component {
     if (this.props.title) {
       titleToolBar = this.props.title
     }
-    let actionsToolBar = [<Button icon key='person_pin'>person_pin</Button>]
+    let actionsToolBar = [<Link href='/login'><Button icon key='person_pin' className='md-btn--toolbar'>person_pin</Button></Link>]
     if (this.props.search) {
       actionsToolBar.unshift(<Button icon key='search'>search</Button>)
     }
@@ -22,7 +22,7 @@ class TopToolbar extends React.Component {
     let params = {
       ...Toolbar.defaultProps,
       ...this.props,
-      nav: <Link href='/'><Button icon key='home'>{iconHome}</Button></Link>,
+      nav: <Link href='/'><Button icon key='home' className='md-btn--toolbar'>{iconHome}</Button></Link>,
       title: <div>{titleToolBar}</div>,
       actions: actionsToolBar
     }
