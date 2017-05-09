@@ -19,7 +19,6 @@ class RecipeDetail extends React.Component {
   componentDidUpdate (prevProps, prevState) {
     if (this.props.data.recipe) {
       this.props.onLoad(this.props.data.recipe.title)
-      console.log('yooo')
     }
   }
 
