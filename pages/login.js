@@ -1,8 +1,7 @@
-import App from '../components/App'
 import TopToolbar from '../components/TopToolbar'
 import LoginContainer from '../components/LoginContainer'
 
-import withData from '../lib/withData'
+import page from '../lib/hoc/page'
 import React from 'react'
 
 class RecipePage extends React.Component {
@@ -12,21 +11,18 @@ class RecipePage extends React.Component {
     this.onLoad = this.onLoad.bind(this)
   }
 
-  static getInitialProps ({ query: { id }, pathname: uri }) {
-    return { id, uri }
-  }
   onLoad (newTitle) {
     this.setState({title: newTitle})
   }
 
   render () {
     return (
-      <App>
+      <div>
         <TopToolbar colored component='header' backButton title='Login' />
         <LoginContainer />
-      </App>
+      </div>
     )
   }
 }
 
-export default withData(RecipePage)
+export default page(RecipePage)

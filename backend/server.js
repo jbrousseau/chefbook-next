@@ -1,21 +1,11 @@
 const express = require('express')
 const next = require('next')
 const postgraphql = require('postgraphql').postgraphql
-const dotenv = require('dotenv')
 const { parse } = require('url')
 const { join } = require('path')
+const { DB_STRING, DB_SCHEMA, SECRET, DEFAULT_ROLE, JWT_TOKEN_IDENTIFIER, GRAPHQL_ENDPOINT } = require('./config')
 
 fetch = require('node-fetch') // eslint-disable-line
-
-// Load the config from .env file.
-dotenv.load()
-const {
-  DB_STRING,
-  DB_SCHEMA,
-  SECRET,
-  DEFAULT_ROLE,
-  JWT_TOKEN_IDENTIFIER
-} = process.env
 
 const dev = process.env.NODE_ENV !== 'production'
 const app = next({ dev })
@@ -50,6 +40,6 @@ app.prepare()
 
   server.listen(process.env.PORT, (err) => {
     if (err) throw err
-    console.log(`> Ready on http://${process.env.IP}:${process.env.PORT}`)
+    console.log(`> Ready on https://${process.env.IP}:${process.env.PORT}`)
   })
 })

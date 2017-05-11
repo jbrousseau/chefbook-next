@@ -1,4 +1,6 @@
 NOTES.md
 node_modules
 dist
+config.js
+backend/config.js
 .next

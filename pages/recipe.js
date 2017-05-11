@@ -1,8 +1,7 @@
-import App from '../components/App'
 import TopToolbar from '../components/TopToolbar'
 import RecipeDetailContainer from '../components/RecipeDetailContainer'
 
-import withData from '../lib/withData'
+import page from '../lib/hoc/page'
 import React from 'react'
 
 class RecipePage extends React.Component {
@@ -12,21 +11,18 @@ class RecipePage extends React.Component {
     this.onLoad = this.onLoad.bind(this)
   }
 
-  static getInitialProps ({ query: { id }, pathname: uri }) {
-    return { id, uri }
-  }
   onLoad (newTitle) {
     this.setState({title: newTitle})
   }
 
   render () {
     return (
-      <App>
+      <div>
         <TopToolbar colored component='header' backButton title={this.state.title} />
-        <RecipeDetailContainer recipeId={this.props.id} onLoad={this.onLoad} />
-      </App>
+        <RecipeDetailContainer recipeId={this.props.url.query.id} onLoad={this.onLoad} />
+      </div>
     )
   }
 }
 
-export default withData(RecipePage)
+export default page(RecipePage)

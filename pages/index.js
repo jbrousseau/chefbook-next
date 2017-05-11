@@ -1,20 +1,13 @@
 import App from '../components/App'
 import TabPanel from '../components/TabPanel'
 
-import withData from '../lib/withData'
+import page from '../lib/hoc/page'
 import React from 'react'
 
 class IndexPage extends React.Component {
-  static getInitialProps ({ query: { id }, pathname: uri }) {
-    return { id, uri }
-  }
   render () {
-    return (
-      <App>
-        <TabPanel uri={this.props.uri} />
-      </App>
-    )
+    return <TabPanel uri={this.props.url.query.id} />
   }
 }
 
-export default withData(IndexPage)
+export default page(IndexPage)

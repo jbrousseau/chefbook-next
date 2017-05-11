@@ -4,7 +4,6 @@ import Card from 'react-md/lib/Cards/Card'
 import Media, { MediaOverlay } from 'react-md/lib/Media'
 import Button from 'react-md/lib/Buttons/Button'
 import CircularProgress from 'react-md/lib/Progress/CircularProgress'
-import CardText from 'react-md/lib/Cards/CardText'
 import FontIcon from 'react-md/lib/FontIcons'
 import List from 'react-md/lib/Lists/List'
 import ListItem from 'react-md/lib/Lists/ListItem'
@@ -16,7 +15,7 @@ import React from 'react'
 const imgSrc = '/static/hamburger.jpg'
 
 class RecipeDetail extends React.Component {
-  componentDidUpdate (prevProps, prevState) {
+  componentDidUpdate () {
     if (this.props.data.recipe) {
       this.props.onLoad(this.props.data.recipe.title)
     }

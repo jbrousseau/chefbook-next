@@ -8,6 +8,9 @@
     "schema-up": "./backend/scripts/run-schema",
     "schema-down": "psql -f backend/schema/database/global-drop.sql",
     "schema": "npm run schema-down && npm run schema-up",
+    "postinstall": "sh scripts/createDefaultConfig.sh",
+    "bundle:analyze": "ANALYZE_BUNDLE=true yarn dev",
+    "bundle:view": "webpack-bundle-analyzer .next/stats.json",
     "fix": "standard --fix",
     "test": "standard && jest",
     "dev": "node backend/server.js",
@@ -18,7 +21,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "dotenv": "^4.0.0",
+    "babel-plugin-transform-define": "^1.2.0",
+    "babel-preset-env": "^1.4.0",
     "express": "^4.15.2",
     "graphql": "^0.9.5",
     "lorem-ipsum": "^1.0.4",
@@ -30,6 +34,8 @@
     "react-addons-transition-group": "^15.5.2",
     "react-apollo": "^1.1.2",
     "react-dom": "^15.5.4",
+    "react-ga": "^2.2.0",
+    "react-intl": "^2.3.0",
     "react-md": "^1.0.13",
     "redux": "^3.6.0"
   },
@@ -41,6 +47,32 @@
     "parser": "babel-eslint",
     "ignore": [
       "**/node_modules/**"
+    ]
+  },
+  "babel": {
+    "env": {
+      "test": {
+        "presets": [
+          [
+            "env",
+            {
+              "targets": {
+                "node": "current"
+              }
+            }
+          ],
+          "next/babel"
+        ]
+      }
+    },
+    "presets": [
+      "next/babel"
+    ],
+    "plugins": [
+      [
+        "transform-define",
+        "./config.js"
+      ]
     ]
   }
 }

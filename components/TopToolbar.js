@@ -26,7 +26,6 @@ class TopToolbar extends React.Component {
       title: <div>{titleToolBar}</div>,
       actions: actionsToolBar
     }
-    delete params.uri
     delete params.backButton
     delete params.search
     return (
