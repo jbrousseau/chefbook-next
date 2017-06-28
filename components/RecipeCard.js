@@ -9,7 +9,7 @@ const imgSrc = '/static/hamburger.jpg'
 
 function RecipeCard (props) {
   return (
-    <div className='md-cell md-cell--2-phone md-cell--4-tablet md-cell--3-desktop'>
+    <div className='md-cell md-cell--4'>
       <Link href={{pathname: 'recipe', query: {id: props.id}}}>
         <Media aspectRatio='4-3'>
           <img src={imgSrc} role='presentation' />

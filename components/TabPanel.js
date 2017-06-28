@@ -29,7 +29,7 @@ export default class TabPanel extends React.Component {
   render () {
     return (
       <div>
-        <TabsContainer toolbar={<TopToolbar component='header' search />} colored panelClassName='chefbook-tab-content' ref={this.setTabsContainer}>
+        <TabsContainer colored panelClassName='chefbook-tab-content' ref={this.setTabsContainer}>
           <Tabs tabId='chefbook-stuffs'>
             <Tab label='Recettes' icon={recipes}>
               <RecipeListContainer onLoad={this.forceHeightCalculation} />
@@ -42,11 +42,7 @@ export default class TabPanel extends React.Component {
             </Tab>
           </Tabs>
         </TabsContainer>
-        <Button
-          floating
-          primary
-          fixed
-        >add</Button>
+        <Button floating primary fixed>add</Button>
       </div>
     )
   }

@@ -10,12 +10,12 @@
     "schema": "npm run schema-down && npm run schema-up",
     "postinstall": "sh scripts/createDefaultConfig.sh",
     "bundle:analyze": "ANALYZE_BUNDLE=true yarn dev",
-    "bundle:view": "webpack-bundle-analyzer .next/stats.json",
+    "bundle:view": "webpack-bundle-analyzer .next/stats.json -h 0.0.0.0 -p 8080",
     "fix": "standard --fix",
     "test": "standard && jest",
     "dev": "node backend/server.js",
-    "build": "next build",
-    "start": "next start"
+    "build": "NODE_ENV=production next build",
+    "start": "NODE_ENV=production node backend/server.js"
   },
   "keywords": [],
   "author": "",
@@ -25,6 +25,7 @@
     "babel-preset-env": "^1.4.0",
     "express": "^4.15.2",
     "graphql": "^0.9.5",
+    "isomorphic-fetch": "^2.2.1",
     "lorem-ipsum": "^1.0.4",
     "next": "^2.3.0-alpha1",
     "node-fetch": "^1.6.3",
@@ -41,7 +42,8 @@
   },
   "devDependencies": {
     "babel-eslint": "^7.2.3",
-    "standard": "^10.0.2"
+    "standard": "^10.0.2",
+    "webpack-bundle-analyzer": "^2.8.1"
   },
   "standard": {
     "parser": "babel-eslint",
