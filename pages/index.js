@@ -1,12 +1,11 @@
-import TopToolbar from '../components/TopToolbar'
-import TabPanel from '../components/TabPanel'
+import RecipeListContainer from '../components/container/RecipeListContainer'
 
 import page from '../lib/hoc/page'
-import React from 'react'
+import { Component } from 'react'
 
-class IndexPage extends React.Component {
+class IndexPage extends Component {
   render () {
-    return <div><TopToolbar component='header' search /><TabPanel uri={this.props.url.query.id} /></div>
+    return <RecipeListContainer />
   }
 }
 
