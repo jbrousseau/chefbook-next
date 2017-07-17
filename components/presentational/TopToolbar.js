@@ -36,7 +36,7 @@ class TopToolbar extends React.Component {
     return (
       <AppBar
         title={titleToolBar}
-        iconElementLeft={<IconButton>{iconHome}</IconButton>}
+        iconElementLeft={<Link href='/'><IconButton>{iconHome}</IconButton></Link>}
       />
     )
   }

@@ -6,7 +6,7 @@ import {Component} from 'react'
 
 class RecipeDetailContainer extends Component {
   componentDidUpdate () {
-    if (this.props.data.recipe) {
+    if (this.props.data.recipe && typeof this.props.onLoad === 'function') {
       this.props.onLoad(this.props.data.recipe.title)
     }
   }

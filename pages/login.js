@@ -25,4 +25,4 @@ class RecipePage extends React.Component {
   }
 }
 
-export default page(RecipePage)
+export default page()(RecipePage)

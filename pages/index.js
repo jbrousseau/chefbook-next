@@ -9,4 +9,4 @@ class IndexPage extends Component {
   }
 }
 
-export default page(IndexPage)
+export default page()(IndexPage)
