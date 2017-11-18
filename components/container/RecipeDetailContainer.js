@@ -1,4 +1,4 @@
-import { gql } from 'react-apollo'
+import gql from 'graphql-tag'
 import withGraphql from '../../lib/hoc/withGraphql'
 import RecipeCardDetail from '../presentational/RecipeCardDetail'
 

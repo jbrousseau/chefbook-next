@@ -21,7 +21,10 @@ app.prepare()
     classicIds: true,
     graphiql: true,
     jwtSecret: SECRET,
-    jwtPgTypeIdentifier: JWT_TOKEN_IDENTIFIER
+    jwtPgTypeIdentifier: JWT_TOKEN_IDENTIFIER,
+    disableQueryLog: !dev,
+    extendedErrors: dev ? ['detail'] : [],
+    showErrorStack: dev
   }))
 
   server.get('*', (req, res) => {

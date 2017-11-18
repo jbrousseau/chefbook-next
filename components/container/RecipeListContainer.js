@@ -1,5 +1,5 @@
 import RecipeCardList from '../presentational/RecipeCardList'
-import { gql } from 'react-apollo'
+import gql from 'graphql-tag'
 import withGraphql from '../../lib/hoc/withGraphql'
 import React from 'react'
 
