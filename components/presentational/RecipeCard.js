@@ -2,6 +2,7 @@ import {Card, CardMedia, CardTitle} from 'material-ui/Card'
 import {GridTile} from 'material-ui/GridList'
 import IconButton from 'material-ui/IconButton'
 import StarBorder from 'material-ui/svg-icons/toggle/star-border'
+import TouchRipple from 'material-ui/internal/TouchRipple'
 
 import Link from 'next/link'
 
@@ -18,9 +19,11 @@ export default function RecipeCard (props) {
       titlePosition='top'
       titleBackground='linear-gradient(to bottom, rgba(0,0,0,0.7) 0%,rgba(0,0,0,0.3) 70%,rgba(0,0,0,0) 100%)'
           >
-      <Link href={{pathname: 'recipe', query: {id: props.id}}}>
-        <img src={imgSrc} />
-      </Link>
+      <TouchRipple>
+        <Link href={{pathname: 'recipe', query: {id: props.id}}}>
+          <img src={imgSrc} />
+        </Link>
+      </TouchRipple>
     </GridTile>
   )
 }
