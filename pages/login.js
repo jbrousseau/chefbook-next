@@ -1,5 +1,5 @@
-import TopToolbar from '../components/TopToolbar'
-import LoginContainer from '../components/LoginContainer'
+import TopToolbar from '../components/presentational/TopToolbar'
+// import LoginContainer from '../components/container/LoginContainer'
 
 import page from '../lib/hoc/page'
 import React from 'react'
@@ -19,10 +19,10 @@ class RecipePage extends React.Component {
     return (
       <div>
         <TopToolbar colored component='header' backButton title='Login' />
-        <LoginContainer />
+
       </div>
     )
   }
 }
-
+// <LoginContainer />
 export default page()(RecipePage)

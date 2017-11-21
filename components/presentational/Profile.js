@@ -4,15 +4,15 @@ import { gql, graphql } from 'react-apollo'
 class Profile extends React.Component {
   constructor (props) {
     super(props)
-    this.logout = () => {
-      App.logout() // or whatever else your logout flow is
+    /* this.logout = () => {
+      //App.logout() // or whatever else your logout flow is
       .then(() =>
         props.client.resetStore()
       )
       .catch(err =>
         console.error('Logout failed', err)
       )
-    }
+    } */
   }
   render () {
     const { loading, currentUser } = this.props

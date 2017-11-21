@@ -2,7 +2,6 @@ import { TabsContainer, Tabs, Tab } from 'react-md/lib/Tabs'
 import FontIcon from 'react-md/lib/FontIcons'
 
 import LoremIpsum from './LoremIpsum'
-import TopToolbar from './TopToolbar'
 import Button from 'react-md/lib/Buttons/Button'
 import React from 'react'
 

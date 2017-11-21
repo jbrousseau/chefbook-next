@@ -20,6 +20,7 @@ app.prepare()
     pgDefaultRole: DEFAULT_ROLE,
     classicIds: true,
     graphiql: true,
+    graphqlRoute: GRAPHQL_ENDPOINT,
     jwtSecret: SECRET,
     jwtPgTypeIdentifier: JWT_TOKEN_IDENTIFIER,
     disableQueryLog: !dev,
