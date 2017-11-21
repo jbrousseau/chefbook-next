@@ -15,7 +15,7 @@ class NoSSR extends React.Component {
   }
 
   render () {
-    const { children = '', onSSR = <DefaultOnSSR />} = this.props
+    const { children = '', onSSR = <DefaultOnSSR /> } = this.props
 
     const { canRender } = this.state
 
