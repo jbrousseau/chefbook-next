@@ -1,7 +1,7 @@
-import TopToolbar from '../components/presentational/TopToolbar'
+import TopToolbar from 'components/presentational/TopToolbar'
 // import LoginContainer from '../components/container/LoginContainer'
 
-import page from '../lib/hoc/page'
+import page from 'lib/hoc/page'
 import React from 'react'
 
 class RecipePage extends React.Component {

@@ -1,6 +1,6 @@
-import RecipeCardList from '../presentational/RecipeCardList'
+import RecipeCardList from 'components/presentational/RecipeCardList'
 import gql from 'graphql-tag'
-import withGraphql from '../../lib/hoc/withGraphql'
+import withGraphql from 'lib/hoc/withGraphql'
 import React from 'react'
 
 const NUMBER_OF_RECIPES_PER_PAGE = 10

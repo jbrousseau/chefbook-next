@@ -1,6 +1,6 @@
-import RecipeDetailContainer from '../components/container/RecipeDetailContainer'
+import RecipeDetailContainer from 'components/container/RecipeDetailContainer'
 
-import page from '../lib/hoc/page'
+import page from 'lib/hoc/page'
 import React from 'react'
 
 class RecipePage extends React.Component {

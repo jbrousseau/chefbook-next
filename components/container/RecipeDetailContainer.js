@@ -1,6 +1,6 @@
 import gql from 'graphql-tag'
-import withGraphql from '../../lib/hoc/withGraphql'
-import RecipeCardDetail from '../presentational/RecipeCardDetail'
+import withGraphql from 'lib/hoc/withGraphql'
+import RecipeCardDetail from 'components/presentational/RecipeCardDetail'
 
 import {Component} from 'react'
 
