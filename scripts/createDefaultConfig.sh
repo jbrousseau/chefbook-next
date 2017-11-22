@@ -8,7 +8,8 @@ if [ ! -f config.js ]; then
 // read process.env.NODE_ENV to set values depending on environment
 
 module.exports = {
-  GRAPHQL_ENDPOINT: 'https://react-jbrousseau.c9users.io:8080/graphql'
+  GRAPHQL_ENDPOINT: 'https://react-jbrousseau.c9users.io:8080/graphql',
+  ANALYTICS_TRACKING_ID: 'A_RENSEIGNER'
 };
 EOF
 fi;
