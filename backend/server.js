@@ -3,6 +3,7 @@ const next = require('next')
 const postgraphql = require('postgraphql').postgraphql
 const { parse } = require('url')
 const { join } = require('path')
+const CacheManager = require('./CacheManager')
 const { DB_STRING, DB_SCHEMA, SECRET, DEFAULT_ROLE, JWT_TOKEN_IDENTIFIER, GRAPHQL_ENDPOINT } = require('./config')
 
 fetch = require('node-fetch') // eslint-disable-line
@@ -10,6 +11,7 @@ fetch = require('node-fetch') // eslint-disable-line
 const dev = process.env.NODE_ENV !== 'production'
 const app = next({ dev })
 const handle = app.getRequestHandler()
+const cacheManager = new CacheManager(dev)
 
 app.prepare()
 .then(() => {
@@ -27,6 +29,16 @@ app.prepare()
     extendedErrors: dev ? ['detail'] : [],
     showErrorStack: dev
   }))
+
+  // Use the `renderAndCache` utility defined below to serve pages
+  server.get('/', (req, res) => {
+    cacheManager.renderAndCache(app, req, res, '/')
+  })
+
+  server.get('/recipe/:id', (req, res) => {
+    const queryParams = { id: req.params.id }
+    cacheManager.renderAndCache(app, req, res, '/recipe', queryParams)
+  })
 
   server.get('*', (req, res) => {
     const parsedUrl = parse(req.url, true)

@@ -19,7 +19,7 @@ export default function RecipeCard (props) {
       titleBackground='linear-gradient(to bottom, rgba(0,0,0,0.7) 0%,rgba(0,0,0,0.3) 70%,rgba(0,0,0,0) 100%)'
           >
       <TouchRipple>
-        <Link href={{pathname: 'recipe', query: {id: props.id}}}>
+        <Link href={{pathname: 'recipe', query: {id: props.id}}} as={`recipe/${props.id}`}>
           <img src={imgSrc} />
         </Link>
       </TouchRipple>
