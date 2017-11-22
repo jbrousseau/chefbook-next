@@ -1,13 +1,15 @@
 /* eslint-env jest */
-import React from 'react'
+import Adapter from 'enzyme-adapter-react-16'
 import NoSSR from '/components/generic/NoSSR'
-import {shallow, mount} from 'enzyme'
+import {shallow, mount, configure} from 'enzyme'
+
+configure({ adapter: new Adapter() })
 
 describe('no-ssr', () => {
   describe('on-server', () => {
     it('should not render children', () => {
       const MyComp = () => (<div>Hello</div>)
-      const el = shallow((<NoSSR><MyComp /></NoSSR>))
+      const el = shallow((<NoSSR><MyComp /></NoSSR>), {disableLifecycleMethods: true})
       expect(el.html()).not.toMatch(/Hello/)
     })
   })
@@ -25,7 +27,7 @@ describe('no-ssr', () => {
       it('should show the onSSR component', () => {
         const MyComp = () => (<div>Hello</div>)
         const Loading = () => (<div>Loading...</div>)
-        const el = shallow((<NoSSR onSSR={<Loading />}><MyComp /></NoSSR>))
+        const el = shallow((<NoSSR onSSR={<Loading />}><MyComp /></NoSSR>), {disableLifecycleMethods: true})
         expect(el.html()).toMatch(/Loading/)
       })
     })
