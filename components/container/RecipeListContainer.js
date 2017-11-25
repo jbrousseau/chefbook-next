@@ -6,12 +6,6 @@ import React from 'react'
 const NUMBER_OF_RECIPES_PER_PAGE = 10
 
 class RecipeListContainer extends React.Component {
-  componentDidUpdate () {
-    if (this.props.data.allRecipes && typeof this.props.onLoad === 'function') {
-      this.props.onLoad()
-    }
-  }
-
   render () {
     const { data: { allRecipes } } = this.props
 
