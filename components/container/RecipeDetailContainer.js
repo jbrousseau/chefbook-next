@@ -6,6 +6,10 @@ import {Component} from 'react'
 
 class RecipeDetailContainer extends Component {
   componentDidUpdate () {
+    this.updateTitleTopBar()
+  }
+
+  updateTitleTopBar () {
     if (this.props.data.recipe && typeof this.props.onLoad === 'function') {
       this.props.onLoad(this.props.data.recipe.title)
     }
@@ -14,6 +18,7 @@ class RecipeDetailContainer extends Component {
   render () {
     const recipe = this.props.data.recipe
     if (recipe) {
+      this.updateTitleTopBar()
       //  const areMoreRecipes = allRecipes.totalCount < _allRecipesMeta.count
       return (<RecipeCardDetail recipe={recipe} />)
     }
