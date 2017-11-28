@@ -6,7 +6,7 @@ import NoSSR from 'components/generic/NoSSR'
 
 class IndexPage extends Component {
   render () {
-    return <div><NoSSR onSSR={<DataLoading />} /><RecipeListContainer /></div>
+    return <RecipeListContainer />
   }
 }
 
