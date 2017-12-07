@@ -74,6 +74,7 @@ class RecipeCardList extends Component {
                   </IconButton>
               }
             />
+            <TouchRipple />
             </GridListTile>
             )}
 
