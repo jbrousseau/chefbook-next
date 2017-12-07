@@ -2,15 +2,34 @@ import React from 'react'
 
 import IconButton from 'material-ui/IconButton'
 import Link from 'next/link'
+import PropTypes from 'prop-types'
 import AppBar from 'material-ui/AppBar'
-import muiThemeable from 'material-ui/styles/muiThemeable'
+import Toolbar from 'material-ui/Toolbar'
+import Typography from 'material-ui/Typography'
+import Button from 'material-ui/Button'
+import { withStyles } from 'material-ui/styles'
 
-import RestaurantIcon from 'material-ui/svg-icons/maps/restaurant'
-import ArrowBackIcon from 'material-ui/svg-icons/navigation/arrow-back'
+import RestaurantIcon from 'material-ui-icons/Restaurant'
+import ArrowBackIcon from 'material-ui-icons/ArrowBack'
+
+const styles = theme => ({
+  root: {
+    marginTop: theme.spacing.unit * 3,
+    width: '100%'
+  },
+  flex: {
+    flex: 1
+  },
+  menuButton: {
+    marginLeft: -12,
+    marginRight: 20
+  }
+})
 
 class TopToolbar extends React.Component {
   render () {
-    const iconColor = this.props.muiTheme.palette.canvasColor
+    const iconColor = 'primary'
+    const { classes } = this.props
     let iconHome = <RestaurantIcon color={iconColor} />
     if (this.props.backButton === true) {
       iconHome = <ArrowBackIcon color={iconColor} />
@@ -19,27 +38,28 @@ class TopToolbar extends React.Component {
     if (this.props.title) {
       titleToolBar = this.props.title
     }
-   /* let actionsToolBar = [<Link href='/login'><Button icon key='person_pin' className='md-btn--toolbar'>person_pin</Button></Link>]
-    if (this.props.search) {
-      actionsToolBar.unshift(<Button icon key='search'>search</Button>)
-    }
 
-    let params = {
-      ...Toolbar.defaultProps,
-      ...this.props,
-      nav: <Link href='/'><Button icon key='home' className='md-btn--toolbar'>{iconHome}</Button></Link>,
-      title: <div>{titleToolBar}</div>,
-      actions: actionsToolBar
-    }
-    delete params.backButton
-    delete params.search */
     return (
-      <AppBar
-        title={titleToolBar}
-        iconElementLeft={<Link href='/'><IconButton>{iconHome}</IconButton></Link>}
-      />
+
+      <AppBar position='static'>
+        <Toolbar>
+          <Link href='/'>
+            <IconButton className={classes.menuButton} color='contrast' aria-label='Menu'>
+              {iconHome}
+            </IconButton>
+          </Link>
+          <Typography type='title' color='inherit' className={classes.flex}>
+            {titleToolBar}
+          </Typography>
+          <Button color='contrast'>Login</Button>
+        </Toolbar>
+      </AppBar>
     )
   }
 }
 
-export default muiThemeable()(TopToolbar)
+TopToolbar.propTypes = {
+  classes: PropTypes.object.isRequired
+}
+
+export default withStyles(styles)(TopToolbar)
