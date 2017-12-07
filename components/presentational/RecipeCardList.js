@@ -1,4 +1,3 @@
-import RecipeCard from './RecipeCard'
 import { GridList, GridListTile, GridListTileBar } from 'material-ui/GridList'
 import { withStyles } from 'material-ui/styles'
 import withWidth from 'material-ui/utils/withWidth'
@@ -12,10 +11,10 @@ import Link from 'next/link'
 
 const styles = theme => ({
   root: {
-    /*display: 'flex',*/
+    /* display: 'flex', */
     /* retour à la ligne auto */
-    /*flexWrap: 'wrap',*/
-   /* justifyContent: 'space-around',*/
+    /* flexWrap: 'wrap', */
+   /* justifyContent: 'space-around', */
     /* scrolling uniquement vertical */
     overflow: 'hidden',
     /* paddingTop: '10px', */
@@ -41,15 +40,15 @@ class RecipeCardList extends Component {
     const { classes } = this.props
     const { width } = this.props
     let numberOfCols = 2
-    if (width == 'xl') {
+    if (width === 'xl') {
       numberOfCols = 5
-    } else if (width == 'lg') {
+    } else if (width === 'lg') {
       numberOfCols = 4
-    } else if (width == 'md') {
+    } else if (width === 'md') {
       numberOfCols = 3
-    } else if (width == 'sm') {
+    } else if (width === 'sm') {
       numberOfCols = 2
-    } else if (width == 'xs') {
+    } else if (width === 'xs') {
       numberOfCols = 1
     }
     console.log(width)
@@ -59,7 +58,7 @@ class RecipeCardList extends Component {
           {this.props.allRecipes.nodes.map((recipe, index) =>
             <GridListTile key={index}>
               <Link href={{pathname: 'recipe', query: {id: recipe.id}}} as={`recipe/${recipe.id}`}>
-                <img src={imgSrc} alt={recipe.title}/>
+                <img src={imgSrc} alt={recipe.title} />
               </Link>
               <GridListTileBar
                 title={recipe.title}
@@ -74,7 +73,7 @@ class RecipeCardList extends Component {
                   </IconButton>
               }
             />
-            <TouchRipple />
+              <TouchRipple />
             </GridListTile>
             )}
 

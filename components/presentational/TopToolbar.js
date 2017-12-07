@@ -17,6 +17,9 @@ const styles = theme => ({
     marginTop: theme.spacing.unit * 3,
     width: '100%'
   },
+  appBar: {
+    marginBottom: '10px'
+  },
   flex: {
     flex: 1
   },
@@ -41,7 +44,7 @@ class TopToolbar extends React.Component {
 
     return (
 
-      <AppBar position='static'>
+      <AppBar position='static' className={classes.appBar}>
         <Toolbar>
           <Link href='/'>
             <IconButton className={classes.menuButton} color='contrast' aria-label='Menu'>
