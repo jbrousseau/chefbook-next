@@ -6,6 +6,7 @@ const { join } = require('path')
 const CacheManager = require('./CacheManager')
 const compression = require('compression')
 const helmet = require('helmet')
+const http2 = require('http2');
 
 const { DB_STRING, DB_SCHEMA, SECRET, DEFAULT_ROLE, JWT_TOKEN_IDENTIFIER, GRAPHQL_ENDPOINT } = require('./config')
 

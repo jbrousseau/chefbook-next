@@ -24,6 +24,23 @@ const styles = theme => ({
     // Promote the list into his own layer on Chrome. This cost memory but helps keeping high FPS.
     transform: 'translateZ(0)'
   },
+  mask: {
+    opacity: 0,
+    overflow: 'visible',
+    border: '100px solid rgba(0,0,0,0.7)',
+    boxSizing: 'border-box',
+    transition: 'all 0.4s ease-in-out',
+    position: 'absolute',
+    width: '100%',
+    height: '100%',
+    top: 0,
+    '&:hover': {
+      opacity: 1,
+      border: '100px solid rgba(0,0,0,0.7)'
+    }
+  },
+  gridListTile: {
+  },
   title: {
     color: theme.palette.primary[200]
   },
@@ -33,7 +50,7 @@ const styles = theme => ({
   }
 })
 
-const imgSrc = '/static/fond_chefbook.jpg'
+const imgSrc = '/static/hamburger.jpg'
 
 class RecipeCardList extends Component {
   render () {
@@ -56,10 +73,8 @@ class RecipeCardList extends Component {
       <div className={classes.root}>
         <GridList cellHeight={300} spacing={2} className={classes.gridList} cols={numberOfCols}>
           {this.props.allRecipes.nodes.map((recipe, index) =>
-            <GridListTile key={index}>
-              <Link href={{pathname: 'recipe', query: {id: recipe.id}}} as={`recipe/${recipe.id}`}>
-                <img src={imgSrc} alt={recipe.title} />
-              </Link>
+            <GridListTile key={index} className={classes.gridListTile}>
+              <img src={imgSrc} alt={recipe.title} />
               <GridListTileBar
                 title={recipe.title}
                 subtitle={recipe.recipeCategoryByCategoryId.label}
@@ -74,6 +89,9 @@ class RecipeCardList extends Component {
               }
             />
               <TouchRipple />
+              <div className={classes.mask}>
+                <Link href={{pathname: 'recipe', query: {id: recipe.id}}} as={`recipe/${recipe.id}`}><StarBorder/></Link>
+              </div>
             </GridListTile>
             )}
 
