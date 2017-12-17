@@ -39,46 +39,46 @@ class RecipeCard extends Component {
             </Typography>
           </CardContent>
         </Card>
-          <Card className={classes.card}>
-            <List>
-              <ListItem>
+        <Card className={classes.card}>
+          <List>
+            <ListItem>
+              <ListItemIcon>
+                <AlarmIcon />
+              </ListItemIcon>
+              <ListItemText primary={<div><span className='md-caption'>Temps de préparation : </span><span>{recipe.setupTime} min</span></div>} />
+            </ListItem>
+            <ListItem>
+              <ListItemIcon>
+                <WbSunnyIcon />
+              </ListItemIcon>
+              <ListItemText primary={<div><span className='md-caption'>Temps de cuisson : </span><span>{recipe.cookTime} min</span></div>} />
+            </ListItem>
+          </List>
+          <List>
+            <ListItemText primary='Ingredients' />
+            <Divider inset />
+            {recipe.recipeIngredientsByRecipeId.nodes.map((ingredient, index) =>
+              <ListItem key={ingredient.id} >
                 <ListItemIcon>
-                  <AlarmIcon />
+                  <ShoppingBasketIcon />
                 </ListItemIcon>
-                <ListItemText primary={<div><span className='md-caption'>Temps de préparation : </span><span>{recipe.setupTime} min</span></div>} />
+                <ListItemText primary={ingredient.quantity + ' ' + ingredient.ingredientByIngredientId.label} />
               </ListItem>
-              <ListItem>
+            )}
+          </List>
+          <List>
+            <ListItemText primary='Etapes' />
+            <Divider inset />
+            {recipe.recipeStepsByRecipeId.nodes.map((step, index) =>
+              <ListItem key={step.id} >
                 <ListItemIcon>
-                  <WbSunnyIcon />
+                  <Avatar>{index + 1}</Avatar>
                 </ListItemIcon>
-                <ListItemText primary={<div><span className='md-caption'>Temps de cuisson : </span><span>{recipe.cookTime} min</span></div>} />
+                <ListItemText primary={step.body} />
               </ListItem>
-            </List>
-            <List>
-              <ListItemText primary='Ingredients' />
-              <Divider inset />
-              {recipe.recipeIngredientsByRecipeId.nodes.map((ingredient, index) =>
-                <ListItem key={ingredient.id} >
-                  <ListItemIcon>
-                    <ShoppingBasketIcon />
-                  </ListItemIcon>
-                  <ListItemText primary={ingredient.quantity + ' ' + ingredient.ingredientByIngredientId.label} />
-                </ListItem>
             )}
-            </List>
-            <List>
-              <ListItemText primary='Etapes' />
-              <Divider inset />
-              {recipe.recipeStepsByRecipeId.nodes.map((step, index) =>
-                <ListItem key={step.id} >
-                  <ListItemIcon>
-                    <Avatar>{index + 1}</Avatar>
-                  </ListItemIcon>
-                  <ListItemText primary={step.body} />
-                </ListItem>
-            )}
-            </List>
-          </Card>
+          </List>
+        </Card>
       </div>
     )
   }

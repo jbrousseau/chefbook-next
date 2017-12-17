@@ -90,7 +90,7 @@ class RecipeCardList extends Component {
             />
               <TouchRipple />
               <div className={classes.mask}>
-                <Link href={{pathname: 'recipe', query: {id: recipe.id}}} as={`recipe/${recipe.id}`}><StarBorder/></Link>
+                <Link href={{pathname: 'recipe', query: {id: recipe.id}}} as={`recipe/${recipe.id}`}><StarBorder /></Link>
               </div>
             </GridListTile>
             )}

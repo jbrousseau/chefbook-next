@@ -6,7 +6,8 @@ const { join } = require('path')
 const CacheManager = require('./CacheManager')
 const compression = require('compression')
 const helmet = require('helmet')
-const http2 = require('http2');
+// const fs = require('fs')
+// const http2 = require('http2')
 
 const { DB_STRING, DB_SCHEMA, SECRET, DEFAULT_ROLE, JWT_TOKEN_IDENTIFIER, GRAPHQL_ENDPOINT } = require('./config')
 
@@ -16,6 +17,11 @@ const dev = process.env.NODE_ENV !== 'production'
 const app = next({ dev })
 const handle = app.getRequestHandler()
 const cacheManager = new CacheManager(dev)
+
+/* const options = {
+    key: fs.readFileSync(__dirname + '/https_files/server.key'),
+    cert:  fs.readFileSync(__dirname + '/https_files/server.crt')
+} */
 
 app.prepare()
 .then(() => {
@@ -40,6 +46,12 @@ app.prepare()
     server.use(helmet())
   }
 
+  server.get('/service-worker.js', (req, res) => {
+    const parsedUrl = parse(req.url, true)
+    const filePath = join(__dirname, '/..', '.next', parsedUrl.pathname)
+    app.serveStatic(req, res, filePath)
+  })
+
   // Use the `renderAndCache` utility defined below to serve pages
   server.get('/', (req, res) => {
     cacheManager.renderAndCache(app, req, res, '/')
@@ -58,11 +70,13 @@ app.prepare()
       '/favicon.ico'
     ]
     if (rootStaticFiles.indexOf(parsedUrl.pathname) > -1) {
-      const path = join(__dirname, 'static', parsedUrl.pathname)
+      const path = join(__dirname, '/..', 'static', parsedUrl.pathname)
       app.serveStatic(req, res, path)
     }
     return handle(req, res)
   })
+
+  // const serverHttp2 = http2.createSecureServer(options, server)
 
   server.listen(process.env.PORT, (err) => {
     if (err) throw err

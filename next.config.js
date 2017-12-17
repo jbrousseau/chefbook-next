@@ -1,4 +1,5 @@
 /* eslint-disable no-param-reassign */
+const SWPrecacheWebpackPlugin = require('sw-precache-webpack-plugin')
 
 module.exports = {
   webpack: (config) => {
@@ -18,6 +19,19 @@ module.exports = {
           statsFilename: 'stats.json'
         }))
     }
+
+    config.plugins.push(
+      new SWPrecacheWebpackPlugin({
+        verbose: true,
+        staticFileGlobsIgnorePatterns: [/\.next\//],
+        runtimeCaching: [
+          {
+            handler: 'networkFirst',
+            urlPattern: /^https?.*/
+          }
+        ]
+      })
+    )
 
     return config
   }
